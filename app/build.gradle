@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'com.google.dagger.hilt.android'
 }
 
 android {
@@ -51,17 +52,21 @@ dependencies {
     implementation project(path: ':data')
     implementation project(path: ':domain')
 
-    implementation 'androidx.core:core-ktx:1.9.0'
-    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.5.1'
-    implementation 'androidx.activity:activity-compose:1.6.1'
-    implementation "androidx.compose.ui:ui:$compose_ui_version"
-    implementation "androidx.compose.ui:ui-tooling-preview:$compose_ui_version"
-    implementation 'androidx.compose.material:material:1.3.1'
+    implementation "androidx.core:core-ktx:$versions.core_ktx"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:$versions.lifecycle"
+    implementation "androidx.activity:activity-compose:$versions.activity_compose"
+    implementation "androidx.compose.ui:ui:$versions.compose_ui"
+    implementation "androidx.compose.ui:ui-tooling-preview:$versions.compose_ui"
+    implementation "androidx.compose.material:material:$versions.material"
 
-    testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
-    androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_ui_version"
-    debugImplementation "androidx.compose.ui:ui-tooling:$compose_ui_version"
-    debugImplementation "androidx.compose.ui:ui-test-manifest:$compose_ui_version"
+    //dagger-hilt
+    implementation "com.google.dagger:hilt-android:$versions.dagger"
+    annotationProcessor "com.google.dagger:hilt-compiler:$versions.dagger"
+
+    testImplementation "junit:junit:$versions.junit"
+    androidTestImplementation "androidx.test.ext:junit:$versions.junit_ext"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$versions.expresso_core"
+    androidTestImplementation "androidx.compose.ui:ui-test-junit4:$versions.compose_ui"
+    debugImplementation "androidx.compose.ui:ui-tooling:$versions.compose_ui"
+    debugImplementation "androidx.compose.ui:ui-test-manifest:$versions.compose_ui"
 }
